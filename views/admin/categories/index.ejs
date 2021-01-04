@@ -7,6 +7,10 @@
 
     <h2>Categorias</h2>
 
+    <a href='/admin/categories/new'>
+        <button class='btn btn-success'>Criar nova categoria</button>
+    </a>
+
     <hr>
 
     <table class='table table-bordered'>
@@ -31,7 +35,14 @@
     
                     <th><%= category.slug %></th>
     
-                    <th></th>
+                    <th>
+                        <button class='btn btn-warning'>Editar</button>
+                        
+                        <form method='POST' action='/categories/delete' style='display: inline;'>
+                            <input type='hidden' name='id' value='<%= category.id %>'>
+                            <button class='btn btn-danger'>Excluir</button>
+                        </form>
+                    </th>
                 </tr>
             <% }) %>
         </tbody>
