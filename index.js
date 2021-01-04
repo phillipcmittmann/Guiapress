@@ -8,6 +8,9 @@ const connection = require('./database/database');
 const categoriesController = require('./controllers/CategoriesController');
 const articlesController = require('./controllers/ArticlesController');
 
+const articlesModel = require('./models/ArticlesModel');
+const categoriesModel = require('./models/CategoriesModel');
+
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'));

@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const connection = require('../database/database');
 
-const CategoryModel = connection.define('categories', {
+const CategoriesModel = connection.define('categories', {
     title: {
         type: Sequelize.STRING,
         allowNull: false
@@ -13,4 +13,6 @@ const CategoryModel = connection.define('categories', {
     }
 });
 
-module.exports = CategoryModel;
+// CategoriesModel.sync({ force: true });
+
+module.exports = CategoriesModel;
