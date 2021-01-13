@@ -5,12 +5,18 @@ const CategoriesModel = require('../models/CategoriesModel');
 
 const slugify = require('slugify');
 
+const ErrorService = require('../service/ErrorService');
+
 router.get('/admin/categories/new', (req, res) => {
     res.render('admin/categories/new')
 });
 
 router.post('/categories/save', (req, res) => {
     var title = req.body.title;
+
+    if (!title) {
+        ErrorService.contrat('Title');
+    }
 
     if (title !== undefined) {
         CategoriesModel.create({
